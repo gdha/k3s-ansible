@@ -1,0 +1,7 @@
+---
+- name: reboot-arm64
+  reboot:
+  when:
+    - ansible_distribution == 'Ubuntu'
+    - ( ansible_facts.architecture is search("arm") or
+        ansible_facts.architecture is search("aarch64") )

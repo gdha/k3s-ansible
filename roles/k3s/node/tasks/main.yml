@@ -19,6 +19,7 @@
   file:
     path: ~{{ ansible_user }}/.kube
     state: directory
+    mode: 0750
     owner: "{{ ansible_user }}"
 
 - name: Create kubectl/crictl symlinks

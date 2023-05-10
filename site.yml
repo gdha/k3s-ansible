@@ -20,4 +20,4 @@
   hosts: node
   become: yes
   roles:
-    - {role: roles/k3s/node }
+    - { role: roles/k3s/node }

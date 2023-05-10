@@ -5,19 +5,21 @@
   gather_facts: yes
   become: yes
   roles:
-    - role: prereq
-    - role: download
-    - role: raspbian
-    - role: ubuntu
+    - ansible.builtin.include_role: prereq
+    - ansible.builtin.include_role: download
+    - ansible.builtin.include_role: raspbian
+    - ansible.builtin.include_role: ubuntu
 
 - name: Master node
   hosts: master
   become: yes
-  roles:
-    - role: k3s/master
+  ansible.builtin.include_role:
+          name: Master
+          tasks_from: k3s/master
 
 - name: Nodes
   hosts: node
   become: yes
-  roles:
-    - role: k3s/node
+  ansible.builtin.include_role: 
+    name: Node
+    tasks_from: k3s/node

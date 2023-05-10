@@ -5,19 +5,10 @@
   gather_facts: yes
   become: yes
   roles:
-    name: K3s cluster roles
-    - ansible.builtin.include_role:
-        name: Pre-requisites
-        tasks_from: prereq
-    - ansible.builtin.include_role:
-        name: Download software
-        tasks_from: download
-    - ansible.builtin.include_role:
-        name: Raspbian OS
-        tasks_from: raspbian
-    - ansible.builtin.include_role:
-        name: Ubunutu OS
-        tasks_from: ubuntu
+    - prereq
+    - download
+    - raspbian
+    - ubuntu
 
 - name: Master node
   hosts: master

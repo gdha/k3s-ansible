@@ -19,5 +19,5 @@
 - name: Nodes
   hosts: node
   become: yes
-  roles: 
+  roles:
     - k3s/node

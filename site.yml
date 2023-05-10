@@ -5,6 +5,7 @@
   gather_facts: yes
   become: yes
   roles:
+    name: K3s cluster roles
     - ansible.builtin.include_role:
         name: Pre-requisites
         tasks_from: prereq

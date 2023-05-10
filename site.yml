@@ -13,13 +13,9 @@
 - name: Master node
   hosts: master
   become: yes
-  ansible.builtin.include_role:
-    name: Master
-    tasks_from: k3s/master
+  role: k3s/master
 
 - name: Nodes
   hosts: node
   become: yes
-  ansible.builtin.include_role:
-    name: Node
-    tasks_from: k3s/node
+  role: k3s/node

@@ -5,10 +5,18 @@
   gather_facts: yes
   become: yes
   roles:
-    - ansible.builtin.include_role: prereq
-    - ansible.builtin.include_role: download
-    - ansible.builtin.include_role: raspbian
-    - ansible.builtin.include_role: ubuntu
+    - ansible.builtin.include_role:
+        name: Pre-requisites
+        tasks_from: prereq
+    - ansible.builtin.include_role:
+        name: Download software
+        tasks_from: download
+    - ansible.builtin.include_role:
+        name: Raspbian OS
+        tasks_from: raspbian
+    - ansible.builtin.include_role:
+        name: Ubunutu OS
+        tasks_from: ubuntu
 
 - name: Master node
   hosts: master

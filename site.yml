@@ -14,10 +14,10 @@
   hosts: master
   become: yes
   roles:
-    - { role: roles/k3s/master }
+    - {role: roles/k3s/master}
 
 - name: Nodes
   hosts: node
   become: yes
   roles:
-    - { role: roles/k3s/node }
+    - {role: roles/k3s/node}

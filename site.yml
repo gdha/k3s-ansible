@@ -13,9 +13,11 @@
 - name: Master node
   hosts: master
   become: yes
-  roles: k3s/master
+  roles:
+    - k3s/master
 
 - name: Nodes
   hosts: node
   become: yes
-  roles: k3s/node
+  roles: 
+    - k3s/node

@@ -1,5 +1,5 @@
 ---
-- name: reboot-arm64
+- name: Reboot-arm64
   reboot:
   when:
     - ansible_distribution == 'Ubuntu'

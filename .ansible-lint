@@ -2,4 +2,4 @@ skip_list:
   - 'fqcn-builtins'
 # to avoid "role-name[path]: Avoid using paths when importing roles. (../..)"
 exclude_paths:
-  - roles/k3s
+  - k3s

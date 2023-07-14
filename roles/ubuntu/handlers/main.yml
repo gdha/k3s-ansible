@@ -6,7 +6,7 @@
     - ( ansible_facts.architecture is search("arm") or
         ansible_facts.architecture is search("aarch64") )
 
-- name: restart-multipath
+- name: Restart-multipath
   service:
     name: multipathd.service
     state: restarted

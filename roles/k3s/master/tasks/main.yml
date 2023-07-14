@@ -48,6 +48,7 @@
   file:
     path: ~{{ ansible_user }}/.kube
     state: directory
+    mode: 0750
     owner: "{{ ansible_user }}"
 
 - name: Copy config file to user home directory
@@ -56,6 +57,7 @@
     dest: ~{{ ansible_user }}/.kube/config
     remote_src: yes
     owner: "{{ ansible_user }}"
+    mode: 0644
 
 - name: Replace https://localhost:6443 by https://master-ip:6443
   command: >-

@@ -1,20 +1,23 @@
 ---
 
-- hosts: k3s_cluster
+- name: K3s cluster
+  hosts: k3s_cluster
   gather_facts: yes
   become: yes
   roles:
-    - role: prereq
-    - role: download
-    - role: raspbian
-    - role: ubuntu
+    - prereq
+    - download
+    - raspbian
+    - ubuntu
 
-- hosts: master
+- name: Master node
+  hosts: master
   become: yes
   roles:
-    - role: k3s/master
+    - k3s/master
 
-- hosts: node
+- name: Nodes
+  hosts: node
   become: yes
   roles:
-    - role: k3s/node
+    - k3s/node

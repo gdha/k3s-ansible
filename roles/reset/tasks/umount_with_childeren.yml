@@ -8,7 +8,7 @@
   changed_when: get_mounted_filesystems.stdout | length > 0
 
 - name: Umount filesystem
-  mount:
+  ansible.posix.mount:
     path: "{{ item }}"
     state: unmounted
   with_items:

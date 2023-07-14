@@ -18,3 +18,12 @@
 #    - ansible_distribution == 'Ubuntu'
 #    - ( ansible_facts.architecture is search("arm") or
 #        ansible_facts.architecture is search("aarch64") )
+
+- name: blacklist multipath /dev/sd devices
+  ansible.builtin.template:
+    src: "multipath.conf"
+    dest: "/etc/multipath.conf"
+    owner: root
+    group: root
+    mode: '0644'
+  notify: restart-multipath

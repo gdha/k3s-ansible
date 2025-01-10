@@ -58,3 +58,17 @@ To get access to your **Kubernetes** cluster just
 ```bash
 scp debian@master_ip:~/.kube/config ~/.kube/config
 ```
+
+## /etc/hosts file
+On Ubuntu 24 the `/etc/hosts` file will be refreshed from a template file `/etc/cloud/templates/hosts.debian.tmpl`, therefore, it is important to add your hosts entries in the template file and run the following command:
+
+```bash
+$ ansible pi -m copy -b -a "src=/etc/cloud/templates/hosts.debian.tmpl dest=/etc/cloud/templates/hosts.debian.tmpl mode=0644"
+```
+
+## The kube config file
+We copy the `~/.kube/config` file from the master node to all our nodes:
+
+```bash
+$ ansible pi -m copy -a "src=/home/gdha/.kube/config dest=/home/gdha/.kube/config mode=0600"
+```

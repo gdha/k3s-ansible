@@ -31,14 +31,14 @@
     - kubectl
     - crictl
 
-- name: Fetch the ~/.kube/config file
-  fetch:
-    src: ~{{ ansible_user }}/.kube/config
-    dest: ~{{ ansible_user }}/.kube/
-    flat: yes
-  when: inventory_hostname == 'master'
+#- name: Fetch the ~/.kube/config file
+#  ansible.builtin.fetch:
+#    src: ~{{ ansible_user }}/.kube/config
+#    dest: ~{{ ansible_user }}/.kube/
+#    flat: yes
+#    when: inventory_hostname == 'master'
 
-- name: Enforce proper security on the ~/.kube/config file
-  file:
-    path: ~{{ ansible_user }}/.kube/config
-    mode: 0600
+#- name: Enforce proper security on the ~/.kube/config file
+#  file:
+#    path: "/home/{{ ansible_user }}/.kube/config"
+#    mode: 0600
